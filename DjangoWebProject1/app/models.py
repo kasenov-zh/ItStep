@@ -1,0 +1,80 @@
+"""
+Definition of models.
+"""
+
+from django.db import models
+
+# Create your models here.
+
+class Student(models.Model):
+  Name = models.CharField( verbose_name = 'v_Name',
+                           name = 'n_Name',
+                           primary_key = False,
+                           max_length = 50,
+                           #db_collation = 'db_collation_Name',
+                           unique = False,
+                           blank = True,
+                           #null   = ? Literal[False],
+                           db_index = False,
+                           default = 'Unknown',
+                           editable = True,
+                           auto_created = True,
+                           #serialize = True,
+                           #unique_for_date = '?',
+                           #unique_for_month = '?',
+                           #unique_for_year = '?',
+                           #choices = ['Name 1','Name 2', 'Name 3',],
+                           help_text = 'help: Name is DB column',
+                           db_column = 'db_Name',
+                           #db_tablespace = '?',
+                           #validators = [?],
+                           #error_messages = 'error_messages of Name'
+                          )
+  BDate = models.DateTimeField( verbose_name = 'v_BDate',
+                                name = 'n_BDate',
+                                #auto_now = True,
+                                #auto_now_add = False,
+                                primary_key = False,
+                                max_length = 32,
+                                unique = False,
+                                blank  = False,
+                                #null   = ? Literal[False],
+                                db_index = False,
+                                #default = '01-01-2000',
+                                editable = True,
+                                auto_created = True,
+                                serialize = True,
+                                #unique_for_date = ?,
+                                #unique_for_month = ?,
+                                #unique_for_year = ?,
+                                #choices = [],
+                                help_text = 'help: BDate is DB column',
+                                db_column = 'db_BDate',
+                                #db_tablespace = '?',
+                                #validators = [],
+                                #error_messages = 'error_messages of BDate'
+                               )
+  Mark = models.DecimalField( verbose_name = 'v_Mark',
+                              name = 'n_Mark',
+                              max_digits = 20,
+                              decimal_places = 10,
+                              primary_key = False,
+                              max_length = 40,
+                              unique = False,
+                              blank  = False,
+                              #null = ? Literal[False],
+                              db_index = True,
+                              default = 0,
+                              editable = True,
+                              auto_created = True,
+                              serialize = True,
+                              #unique_for_date = ?,
+                              #unique_for_month = ?,
+                              #unique_for_year = ?,
+                              #choices = [],                              
+                              help_text = 'help: Mark is DB column',
+                              db_column = 'db_Mark',
+                              #db_tablespace = ?,
+                              #validators = [],
+                              #error_messages = 'error_messages of Mark'
+                             )

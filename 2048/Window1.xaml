@@ -1,0 +1,91 @@
+﻿<Window x:Name="window" x:Class="_2048.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2048"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+  <Grid ShowGridLines="False"
+        Margin="10,10,10,10"
+        Background="LightGray">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <GridSplitter Grid.Column="0"
+                  Grid.ColumnSpan="1"
+                  Width="10"
+                  Background="Black" Margin="0,0,0,0"/>
+    <TreeView Name="trDirs" Grid.Column="0">
+      <TreeViewItem Header="Item 1">
+        <Label Content="Sub item 1-1"></Label>
+        <Label Content="Sub item 1-2"></Label>
+        <Label Content="Sub item 1-3"></Label>
+        <TreeViewItem Header="Item 1-4">
+          <Button Content="Sub item 1-4-1"/>
+          <Label Content="Sub item 1-4-2"></Label>
+        </TreeViewItem>
+      </TreeViewItem>
+      <TreeViewItem Header="Item 2">
+        <TextBox Text="Sub item 2-1"/>
+        <Label Content="Sub item 2-1-2"></Label>
+      </TreeViewItem>
+    </TreeView>
+    <ListView Name="lvFiles" Grid.Column="1"
+              d:ItemsSource="{d:SampleData ItemCount=5}"
+              SelectionMode="Extended">
+      <ListView.ContextMenu>
+        <ContextMenu>
+          <MenuItem Name="mItem1" Header="Menu item 1"></MenuItem>
+          <MenuItem Name="mItem2" Header="Menu item 2"></MenuItem>
+          <MenuItem Name="mItem3" Header="Menu item 3"></MenuItem>
+        </ContextMenu>
+      </ListView.ContextMenu>
+      <ListView.View>
+        <GridView>
+
+          <GridView.ColumnHeaderContextMenu>
+            <ContextMenu>
+              <MenuItem Name="mHdrItem1" Header="Column menu item 1"/>
+              <MenuItem Name="mHdrItem2" Header="Column menu item 2"/>
+              <MenuItem Name="mHdrItem3" Header="Column menu item 3"/>
+            </ContextMenu>
+          </GridView.ColumnHeaderContextMenu>
+
+          <!--GridView.Columns-->
+
+          <GridViewColumn>
+            
+            <!--
+            <GridViewColumnHeader>
+              <GridViewColumnHeader Content="Column 1" Click="sort"/>
+            </GridViewColumnHeader>
+            -->
+            
+            <GridViewColumnHeader Content="Column 1" Click="sort"/>
+            <GridViewColumn.CellTemplate>
+              <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                  <Label Content="{Binding DataCol1}"/>
+                  <!--Label Content="456"/-->
+                </StackPanel>
+              </DataTemplate>
+            </GridViewColumn.CellTemplate>
+          </GridViewColumn>
+
+          <GridViewColumn Header="column 4"/>
+
+          <GridViewColumn DisplayMemberBinding="{Binding DataContext, ElementName=window}">
+            <GridViewColumnHeader Content="Column 2" Click="sort"/>
+          </GridViewColumn>
+
+          <GridViewColumn>
+            <GridViewColumnHeader Content="Column 3" Click="sort"/>
+          </GridViewColumn>
+          <!--/GridView.Columns-->
+        </GridView>
+      </ListView.View>
+    </ListView>
+  </Grid>
+</Window>

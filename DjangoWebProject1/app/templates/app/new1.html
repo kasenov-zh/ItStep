@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form action="." method="get">
+        <!--
+            {% csrf_token %}
+        -->
+        <h4>Student info</h4>
+        <hr />
+        <div class="form-group">
+            <label for="st_name">Enter name: </label>
+            <div>
+                {{ form.name }}
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="st_date">Birth date: </label>
+            <div>
+                {{ form.bdate }}
+            </div>
+        </div>
+        <!--input id="team_name" type="text" name="name_field" value=""-->
+        <input type="submit" value="OK">
+    </form>
+    HELLO
+    <p></p>
+    <button name="Button1" style="color:black; background-color:chartreuse"> Button 1 </button>
+    <p />
+    <a href={{ data_link }}
+       style="color:aqua; background-color:blue">
+        Button 2
+    </a>
+</body>
+</html>
